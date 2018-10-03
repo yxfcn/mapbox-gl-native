@@ -78,6 +78,9 @@ platform/darwin/src/MGLDistanceFormatter.m
 
 # SDK/Foundation/Geometry
 platform/darwin/src/MGLAnnotation.h
+platform/darwin/src/MGLCluster.h
+platform/darwin/src/MGLCluster.m
+platform/darwin/src/MGLCluster_Private.h
 platform/darwin/src/MGLFeature.h
 platform/darwin/src/MGLFeature.mm
 platform/darwin/src/MGLFeature_Private.h
@@ -90,7 +93,6 @@ platform/darwin/src/MGLMultiPoint_Private.h
 platform/darwin/src/MGLOverlay.h
 platform/darwin/src/MGLPointAnnotation.h
 platform/darwin/src/MGLPointAnnotation.mm
-platform/darwin/src/MGLPointCluster.h
 platform/darwin/src/MGLPointCollection.h
 platform/darwin/src/MGLPointCollection.mm
 platform/darwin/src/MGLPointCollection_Private.h
