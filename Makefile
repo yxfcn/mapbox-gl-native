@@ -70,7 +70,8 @@ MACOS_COMPDB_PATH = $(MACOS_OUTPUT_PATH)/compdb/$(BUILDTYPE)
 MACOS_XCODEBUILD = xcodebuild \
 	  -derivedDataPath $(MACOS_OUTPUT_PATH) \
 	  -configuration $(BUILDTYPE) \
-	  -workspace $(MACOS_WORK_PATH)
+	  -workspace $(MACOS_WORK_PATH) \
+	  -jobs $(JOBS)
 
 $(MACOS_PROJ_PATH): $(BUILD_DEPS) $(MACOS_USER_DATA_PATH)/WorkspaceSettings.xcsettings
 	mkdir -p $(MACOS_OUTPUT_PATH)
@@ -205,7 +206,8 @@ IOS_XCODEBUILD_SIM = xcodebuild \
 	  -derivedDataPath $(IOS_OUTPUT_PATH) \
 	  -configuration $(BUILDTYPE) -sdk iphonesimulator \
 	  -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest' \
-	  -workspace $(IOS_WORK_PATH)
+	  -workspace $(IOS_WORK_PATH) \
+	  -jobs $(JOBS)
 
 $(IOS_PROJ_PATH): $(IOS_USER_DATA_PATH)/WorkspaceSettings.xcsettings $(BUILD_DEPS)
 	mkdir -p $(IOS_OUTPUT_PATH)
