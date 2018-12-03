@@ -95,10 +95,15 @@ typedef struct __attribute__((objc_boxable)) MGLTransition {
      The amount of time in seconds to wait before beginning the animation.
      */
     NSTimeInterval delay;
+    
+    /**
+     A boolean indicating whether label placement transitions are enabled.
+     */
+    BOOL enablePlacementTransitions;
 } MGLTransition;
 
 NS_INLINE NSString *MGLStringFromMGLTransition(MGLTransition transition) {
-    return [NSString stringWithFormat:@"transition { duration: %f, delay: %f }", transition.duration, transition.delay];
+    return [NSString stringWithFormat:@"transition { duration: %f, delay: %f, enablePlacementTransitions: %@ }", transition.duration, transition.delay, (transition.enablePlacementTransitions ? @"YES": @"NO")];
 }
 
 /**
@@ -110,11 +115,13 @@ NS_INLINE NSString *MGLStringFromMGLTransition(MGLTransition transition) {
  animation.
  
  @return Returns a `MGLTransition` struct containing the transition attributes.
+ The default value for `enablePlacementTransitions` is `YES`.
  */
 NS_INLINE MGLTransition MGLTransitionMake(NSTimeInterval duration, NSTimeInterval delay) {
     MGLTransition transition;
     transition.duration = duration;
     transition.delay = delay;
+    transition.enablePlacementTransitions = YES;
     
     return transition;
 }
