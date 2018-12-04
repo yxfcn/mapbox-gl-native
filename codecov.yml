@@ -3,3 +3,7 @@ ignore:
   - "vendor/"
   - "platform/ios/test"
   - "platform/darwin/test"
+flags:
+  ios:
+    paths:
+      - "platform/ios/"
