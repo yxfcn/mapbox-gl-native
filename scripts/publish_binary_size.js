@@ -109,17 +109,22 @@ function query(after) {
 
             rows.push(row);
         }
+        
+        var payloadTest = {
+          "name": "test",
+          "number": 8
+        }
 
         if (history.pageInfo.hasNextPage) {
             return query(history.pageInfo.endCursor);
         } else {
             return new AWS.S3({region: 'us-east-1'}).putObject({
-                Body: zlib.gzipSync(JSON.stringify(rows.reverse())),
-                Bucket: 'mapbox',
-                Key: 'mapbox-gl-native/metrics/binary-size/data.json',
+                Body: payloadTest,
+                Bucket: 'mapbox-loading-dock',
+                Key: 'raw/mobile_staging.binarysize/',
                 ACL: 'public-read',
                 CacheControl: 'max-age=300',
-                ContentEncoding: 'gzip',
+                ContentEncoding: 'json',
                 ContentType: 'application/json'
             }).promise();
         }

@@ -168,6 +168,22 @@
                         }
                     },
                     {
+                        "PolicyName": "mobile-metrics",
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "s3:PutObject"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": [
+                                        "arn:aws:s3:::mapbox-loading-dock/raw/mobile_staging.binarysize/*"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
                         "PolicyName": "cloudwatch-metrics",
                         "PolicyDocument": {
                             "Statement": [
