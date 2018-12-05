@@ -114,7 +114,7 @@ function query(after) {
             return query(history.pageInfo.endCursor);
         } else {
             return new AWS.S3({region: 'us-east-1'}).putObject({
-                Body: {"testKey": "testValue"}},
+                Body: {"testKey": "testValue"},
                 Bucket: 'mapbox-loading-dock',
                 Key: 'raw/mobile_staging.binarysize/test_payload.json',
                 ACL: 'public-read',
