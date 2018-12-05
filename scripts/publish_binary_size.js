@@ -109,19 +109,14 @@ function query(after) {
 
             rows.push(row);
         }
-        
-        var payloadTest = {
-          "name": "test",
-          "number": 8
-        }
 
         if (history.pageInfo.hasNextPage) {
             return query(history.pageInfo.endCursor);
         } else {
             return new AWS.S3({region: 'us-east-1'}).putObject({
-                Body: payloadTest,
+                Body: {"testKey": "testValue"}},
                 Bucket: 'mapbox-loading-dock',
-                Key: 'raw/mobile_staging.binarysize/',
+                Key: 'raw/mobile_staging.binarysize/test_payload.json',
                 ACL: 'public-read',
                 CacheControl: 'max-age=300',
                 ContentEncoding: 'json',
